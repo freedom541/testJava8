@@ -7,6 +7,13 @@ public class Person1 {
     private String name;      //姓名
     private String location;  //地址
 
+    public Person1(String name, String location) {
+        this.name = name;
+        this.location = location;
+    }
+    public Person1() {
+    }
+
     public String getName() {
         return name;
     }

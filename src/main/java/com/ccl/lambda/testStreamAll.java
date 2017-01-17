@@ -1,6 +1,7 @@
 package com.ccl.lambda;
 
 import com.ccl.bean.Person;
+import com.google.common.collect.*;
 import org.junit.Test;
 
 import java.util.*;
@@ -199,5 +200,16 @@ public class testStreamAll {
         System.out.println("List中最小的数字 : " + stats.getMin());
         System.out.println("所有数字的总和   : " + stats.getSum());
         System.out.println("所有数字的平均值 : " + stats.getAverage());
+    }
+
+    @Test
+    public void testListToMap(){
+        Set<String> list = new HashSet<>(Arrays.asList("zhangsan","lisi","wangwu","zhaoliu","tianqi","fusan","huaji"));
+
+        ImmutableMap<String, String> accountMap = Maps.toMap(list, str -> {
+            String last = str.substring(str.length() - 1).toUpperCase();
+            return last;
+        });
+        System.out.println(accountMap);
     }
 }
